@@ -10,7 +10,7 @@ RUN apt-get update && \
  apt-get autoremove -y && \
  apt-get clean
 COPY installpackages.R /root
-RUN /usr/bin/Rscript /root/installpackages.R
+RUN /usr/bin/Rscript --verbose /root/installpackages.R
 EXPOSE 8787
 VOLUME /home/rstudio
 CMD ["/init"]
