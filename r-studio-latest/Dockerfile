@@ -9,6 +9,8 @@ RUN apt-get update && \
  rm /root/clouderaimpalaodbc_2.5.32.1002-2_amd64.deb && \
  apt-get autoremove -y && \
  apt-get clean
+COPY installpackages.R /root
+RUN Rscript /root/installpackages.R
 EXPOSE 8787
 VOLUME /home/rstudio
 CMD ["/init"]
