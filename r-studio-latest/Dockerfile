@@ -3,7 +3,8 @@ MAINTAINER B2B.Web.ID Data Analytics Platform Labs
 COPY clouderaimpalaodbc_2.5.32.1002-2_amd64.deb /root
 COPY installpackages.R /root
 RUN apt-get update && \
- apt-get install -y unixodbc \
+ apt-get install -y \
+  unixodbc unixodbc-dev \
   git \
   libsasl2-modules-gssapi-mit && \
  dpkg -i /root/clouderaimpalaodbc_2.5.32.1002-2_amd64.deb && \

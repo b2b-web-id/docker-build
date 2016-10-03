@@ -18,5 +18,6 @@ install.packages(c(
  'descr',
  'reshape',
  'ggdendro',
- 'ggplot2')
+ 'ggplot2',
+ 'RODBC')
 )
