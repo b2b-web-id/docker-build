@@ -6,6 +6,7 @@ VERSION = bullseye
 all: build
 
 build:
+	docker pull debian:bullseye
 	docker build -t $(NAME):$(VERSION) --rm .
 
 tag_latest:

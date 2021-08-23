@@ -6,6 +6,7 @@ VERSION = buster
 all: build
 
 build:
+	docker pull debian:buster
 	docker build -t $(NAME):$(VERSION) --rm .
 
 tag_latest:

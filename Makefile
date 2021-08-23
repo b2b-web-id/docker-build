@@ -1,4 +1,4 @@
-.PHONY: all debian11
+.PHONY: all debian11 debian10 rbase
 
 all: debian10 debian11 rbase
 
