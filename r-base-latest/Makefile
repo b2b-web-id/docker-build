@@ -1,17 +1,17 @@
 all: download extract build
 
 download:
-	wget -c https://github.com/b2b-web-id/docker-rbase/archive/refs/tags/buster-2021.1.tar.gz
+	wget -c https://github.com/b2b-web-id/docker-rbase/archive/refs/tags/bullseye-2022.1.0.tar.gz
 
 extract:
-	tar -xvzf buster-2021.1.tar.gz
+	tar -xvzf bullseye-2022.1.0.tar.gz
 
 build:
-	docker pull b2bwebid/debian:buster
-	cd docker-rbase-buster-2021.1/ && $(MAKE)
+	docker pull b2bwebid/debian:bullseye
+	cd docker-rbase-bullseye-2022.1.0/ && $(MAKE)
 
 clean:
-	rm -rf buster-2021.1.tar.gz docker-rbase-buster-2021.1/
+	rm -rf bullseye-2022.1.0.tar.gz docker-rbase-bullseye-2022.1.0/
 
 release:
-	cd docker-rbase-buster-2021.1/ && $(MAKE) release
+	cd docker-rbase-bullseye-2022.1.0/ && $(MAKE) release
