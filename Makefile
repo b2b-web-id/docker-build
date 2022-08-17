@@ -1,6 +1,6 @@
-.PHONY: all debian11 debian10 rbase
+.PHONY: clean all debian11 debian10 rbase rquant
 
-all: debian10 debian11 rbase
+all: debian11 rbase rquant
 
 debian10:
 	cd debian-10 && $(MAKE) && $(MAKE) release
@@ -9,4 +9,22 @@ debian11:
 	cd debian-11 && $(MAKE) && $(MAKE) release
 
 rbase:
-	cd r-base-latest && $(MAKE) && $(MAKE) release && $(MAKE) clean
+	if [ -f "r-base-2022.1.0.tar.gz" ]; then rm r-base-2022.1.0.tar.gz; fi
+	if [ -d "r-base" ]; then rm -rf r-base; fi
+	wget https://github.com/b2b-web-id/docker-rbase/archive/refs/tags/bullseye-2022.1.0.tar.gz -O r-base-2022.1.0.tar.gz
+	tar xf r-base-2022.1.0.tar.gz
+	mv docker-rbase-bullseye-2022.1.0 r-base
+	cd r-base && $(MAKE) && $(MAKE) release
+	rm -rf r-base
+
+rquant:
+	if [ -f "r-quant-2022.1.tar.gz" ]; then rm r-quant-2022.1.tar.gz; fi
+	if [ -d "r-quant" ]; then rm -rf r-quant; fi
+	wget https://github.com/b2b-web-id/docker-rquant/archive/refs/tags/r-quant-2022.1.tar.gz
+	tar vxf r-quant-2022.1.tar.gz
+	mv docker-rquant-r-quant-2022.1 r-quant
+	cd r-quant && $(MAKE) && $(MAKE) release
+	rm -rf r-quant
+
+clean:
+	rm *.tar.gz
