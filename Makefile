@@ -12,11 +12,11 @@ debian12:
 	cd debian-12 && $(MAKE) && $(MAKE) release
 
 rbase:
-	if [ -f "r-base-2022.1.0.tar.gz" ]; then rm r-base-2022.1.0.tar.gz; fi
+	if [ -f "r-base-2023.1.0.tar.gz" ]; then rm r-base-2023.1.0.tar.gz; fi
 	if [ -d "r-base" ]; then rm -rf r-base; fi
-	wget https://github.com/b2b-web-id/docker-rbase/archive/refs/tags/bullseye-2022.1.0.tar.gz -O r-base-2022.1.0.tar.gz
-	tar xf r-base-2022.1.0.tar.gz
-	mv docker-rbase-bullseye-2022.1.0 r-base
+	wget https://github.com/b2b-web-id/docker-rbase/archive/refs/tags/bookworm-2023.1.tar.gz -O r-base-2023.1.0.tar.gz
+	tar xf r-base-2023.1.0.tar.gz
+	mv docker-rbase-bookworm-2023.1 r-base
 	cd r-base && $(MAKE) && $(MAKE) release
 	rm -rf r-base
 
