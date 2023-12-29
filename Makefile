@@ -23,9 +23,9 @@ rbase:
 rquant:
 	if [ -f "r-quant-2023.1.tar.gz" ]; then rm r-quant-2023.1.tar.gz; fi
 	if [ -d "r-quant" ]; then rm -rf r-quant; fi
-	wget https://github.com/b2b-web-id/docker-rquant/archive/refs/tags/r-quant-2023.1.tar.gz
-	tar vxf r-quant-2023.1.tar.gz
-	mv docker-rquant-r-quant-2023.1 r-quant
+	wget https://github.com/b2b-web-id/docker-rquant/archive/refs/tags/r-quant-2023.2.tar.gz
+	tar vxf r-quant-2023.2.tar.gz
+	mv docker-rquant-r-quant-2023.2 r-quant
 	cd r-quant && $(MAKE) && $(MAKE) release
 	rm -rf r-quant
 
