@@ -1,6 +1,6 @@
 .PHONY: clean all debian11 debian10 rbase rquant
 
-all: debian11 rbase rquant
+all: debian12 rbase rquant
 
 debian10:
 	cd debian-10 && $(MAKE) && $(MAKE) release
