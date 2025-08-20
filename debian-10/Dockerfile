@@ -1,5 +1,5 @@
 FROM debian:buster
-MAINTAINER B2B.Web.ID Data Analytics Platform Labs
+LABEL MAINTAINER="B2B.Web.ID Data Analytics Platform Labs"
 RUN apt-get update
 RUN apt-get install -y gnupg2 nano systemd && apt-get clean
 RUN apt-get install -y perl zip bzip2 xz-utils && apt-get clean
