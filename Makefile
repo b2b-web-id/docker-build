@@ -1,6 +1,6 @@
 .PHONY: clean all debian13 debian12 debian11 debian10 rbase rquant
 
-all: debian13 rbase rquant
+all: debian13 rbase rquant rstudio
 
 debian10:
 	cd debian-10 && $(MAKE) && $(MAKE) release
@@ -33,11 +33,11 @@ rquant:
 	rm -rf r-quant
 
 rstudio:
-	if [ -f "rstudio-2023.1.tar.gz" ]; then rm rstudio-2023.1.tar.gz; fi
+	if [ -f "rstudio-2025.1.tar.gz" ]; then rm rstudio-2025.1.tar.gz; fi
 	if [ -d "r-studio" ]; then rm -rf r-studio; fi
-	wget https://github.com/b2b-web-id/docker-rstudio/archive/refs/tags/v2023.1.tar.gz -O rstudio-2023.1.tar.gz
-	tar vxf rstudio-2023.1.tar.gz
-	mv docker-rstudio-2023.1 r-studio
+	wget https://github.com/b2b-web-id/docker-rstudio/archive/refs/tags/v2025.1.tar.gz -O rstudio-2025.1.tar.gz
+	tar vxf rstudio-2025.1.tar.gz
+	mv docker-rstudio-2025.1 r-studio
 	cd r-studio && $(MAKE) && $(MAKE) release
 	rm -rf r-studio
 
