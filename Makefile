@@ -1,6 +1,6 @@
-.PHONY: clean all debian11 debian10 rbase rquant
+.PHONY: clean all debian13 debian12 debian11 debian10 rbase rquant
 
-all: debian12 rbase rquant
+all: debian13 rbase rquant
 
 debian10:
 	cd debian-10 && $(MAKE) && $(MAKE) release
@@ -11,21 +11,24 @@ debian11:
 debian12:
 	cd debian-12 && $(MAKE) && $(MAKE) release
 
+debian13:
+	cd debian-13 && $(MAKE) && $(MAKE) release
+
 rbase:
-	if [ -f "r-base-2023.1.0.tar.gz" ]; then rm r-base-2023.1.0.tar.gz; fi
+	if [ -f "r-base-2025.2.tar.gz" ]; then rm r-base-2025.2.tar.gz; fi
 	if [ -d "r-base" ]; then rm -rf r-base; fi
-	wget https://github.com/b2b-web-id/docker-rbase/archive/refs/tags/bookworm-2023.1.tar.gz -O r-base-2023.1.0.tar.gz
-	tar xf r-base-2023.1.0.tar.gz
-	mv docker-rbase-bookworm-2023.1 r-base
+	wget https://github.com/b2b-web-id/docker-rbase/archive/refs/tags/trixie-2025.2.tar.gz -O r-base-2025.2.tar.gz
+	tar xf r-base-2025.2.tar.gz
+	mv docker-rbase-trixie-2025.2 r-base
 	cd r-base && $(MAKE) && $(MAKE) release
 	rm -rf r-base
 
 rquant:
-	if [ -f "r-quant-2023.1.tar.gz" ]; then rm r-quant-2023.1.tar.gz; fi
+	if [ -f "r-quant-2025.2.tar.gz" ]; then rm r-quant-2025.2.tar.gz; fi
 	if [ -d "r-quant" ]; then rm -rf r-quant; fi
-	wget https://github.com/b2b-web-id/docker-rquant/archive/refs/tags/r-quant-2023.2.tar.gz
-	tar vxf r-quant-2023.2.tar.gz
-	mv docker-rquant-r-quant-2023.2 r-quant
+	wget https://github.com/b2b-web-id/docker-rquant/archive/refs/tags/r-quant-2025.2.tar.gz
+	tar vxf r-quant-2025.2.tar.gz
+	mv docker-rquant-r-quant-2025.2 r-quant
 	cd r-quant && $(MAKE) && $(MAKE) release
 	rm -rf r-quant
 
